@@ -1,57 +1,57 @@
 import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
+//import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState, useEffect } from "react";
 import { serverTimestamp, doc, setDoc, addDoc, collection } from "firebase/firestore";
 import { db, storage } from "../../firebase";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+//import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {useNavigate} from "react-router-dom";
 
 const New = ({ inputs, title }) => {
-  const [file, setFile] = useState("");
+  //const [file, setFile] = useState("");
   const [data, setData] = useState({});
-  const [perc, setPerc] = useState(null);
+  //const [perc, setPerc] = useState(null);
 
   const navigate = useNavigate();
   
-  useEffect(() => {
-    const uploadFile = () => {
-      const name = new Date().getTime() + file.name;
-      const storageRef = ref(storage, name);
-      const uploadTask = uploadBytesResumable(storageRef, file);
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-          setPerc(progress);
-          switch (snapshot.state) {
-            case "paused":
-              console.log("Upload is paused");
-              break;
-            case "running":
-              console.log("Upload is running");
-              break;
-            default:
-              break;
-          }
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setData((prev) => ({ ...prev, img: downloadURL }));
-          });
-        }
-      );
-    }
+  // useEffect(() => {
+  //   const uploadFile = () => {
+  //     const name = new Date().getTime() + file.name;
+  //     const storageRef = ref(storage, name);
+  //     const uploadTask = uploadBytesResumable(storageRef, file);
+  //     uploadTask.on(
+  //       "state_changed",
+  //       (snapshot) => {
+  //         const progress =
+  //           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  //         console.log("Upload is " + progress + "% done");
+  //         setPerc(progress);
+  //         switch (snapshot.state) {
+  //           case "paused":
+  //             console.log("Upload is paused");
+  //             break;
+  //           case "running":
+  //             console.log("Upload is running");
+  //             break;
+  //           default:
+  //             break;
+  //         }
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //       },
+  //       () => {
+  //         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+  //           setData((prev) => ({ ...prev, img: downloadURL }));
+  //         });
+  //       }
+  //     );
+  //   }
 
-    file && uploadFile();
+  //   file && uploadFile();
 
-  }, [file]);
+  // }, [file]);
 
 
   const handleInput = (e) => {
@@ -87,7 +87,7 @@ const New = ({ inputs, title }) => {
           <h1>{title}</h1>
         </div>
         <div className="bottom">
-          <div className="left">
+          {/* <div className="left">
             <img
               src={
                 file
@@ -96,10 +96,10 @@ const New = ({ inputs, title }) => {
               }
               alt=""
             />
-          </div>
+          </div> */}
           <div className="right">
             <form onSubmit={handleAdd}>
-              <div className="formInput">
+              {/* <div className="formInput">
                 <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
@@ -109,7 +109,7 @@ const New = ({ inputs, title }) => {
                   onChange={(e) => setFile(e.target.files[0])}
                   style={{ display: "none" }}
                 />
-              </div>
+              </div> */}
 
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
@@ -122,7 +122,7 @@ const New = ({ inputs, title }) => {
                   />
                 </div>
               ))}
-              <button disabled={perc != null && perc < 100} type="submit" >Send</button>
+              <button type="submit" >Add</button>
             </form>
           </div>
         </div>

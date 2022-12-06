@@ -21,7 +21,7 @@ import {useState, useEffect} from 'react';
 //   { name: "17:10:45", F: 102.0 },
 // ];
 
-const Chart = ({ aspect, title, data, icon, dataKey }) => {
+const MultiLineChart = ({ aspect, title, data, icon }) => {
   
   const [tempData, setTempData] = useState([]);
   useEffect(()=>{
@@ -42,11 +42,13 @@ const Chart = ({ aspect, title, data, icon, dataKey }) => {
           <XAxis dataKey={"name"}/>
           <YAxis />
           <Tooltip />
-          <Line type="monotone" dataKey={dataKey} stroke="#8884d8" />
+          <Line type="monotone" dataKey="C" stroke="#8884d8" />
+          <Line type="monotone" dataKey="RV" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Re" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
 };
 
-export default Chart;
+export default MultiLineChart;

@@ -1,4 +1,4 @@
-.login{
+.register{
     height: 100vh;
     display: flex;
     align-items: center;
@@ -19,9 +19,9 @@
             width: 200px;
             height: 30px;
             align-self: center;
-            margin-top: 10px;
+            //margin: 10px;
             border: none;
-            background-color: rgb(128, 94, 0);
+            background-color: purple;
             color: white;
             font-weight: bold;
             cursor: pointer;
@@ -33,23 +33,5 @@
             margin-top: 10px;
             align-self: center;
         }
-    }
-    button{
-        width: 200px;
-        height: 30px;
-        align-self: center;
-        margin-top: 10px;
-        border: none;
-        background-color: rgb(128, 94, 0);
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    .link{
-        color: rgb(128, 94, 0);
-        font-weight: bold;
-        margin-top: 10px;
-        align-self: center;
-        cursor: pointer;
     }
 }

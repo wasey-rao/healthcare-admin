@@ -8,10 +8,11 @@ import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 import { AuthContext } from '../../context/AuthContext';
+import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 
 const Sidebar = () => {
   //const { dispatch } = useContext(DarkModeContext);
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch, currentUser } = useContext(AuthContext);
 
   const handleLogout = () => {
     dispatch({type: "LOGOUT"});
@@ -21,6 +22,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
+          <MonitorHeartIcon className="icon1" />
           <span className="logo">HealthCare</span>
         </Link>
       </div>
@@ -47,10 +49,12 @@ const Sidebar = () => {
             <span>Notifications</span>
           </li> */}
           <p className="title">USER</p>
+          <Link to={{pathname: `/profile/${currentUser.uid}`}} style={{ textDecoration: "none" }}>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
+          </Link>
           <li>
             <ExitToAppIcon className="icon" />
             <span onClick={handleLogout} >Logout</span>
