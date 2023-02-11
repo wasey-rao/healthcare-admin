@@ -14,7 +14,7 @@
       display: flex;
 
       h1 {
-        color: lightgray;
+        color: rgb(211, 211, 211);
         font-size: 20px;
       }
 
@@ -60,20 +60,24 @@
             }
           }
 
-          button {
-            width: 150px;
-            padding: 10px;
-            border: none;
-            background-color: teal;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
+          
+        }
+        button {
+          width: 150px;
+          padding: 10px;
+          border: none;
+          background-color: teal;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          margin-top: 10px;
+          align-self: center;
+          align-items: center;
+          justify-content: center;
 
-            &:disabled {
-              opacity: 0.5;
-              cursor: not-allowed;
-            }
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
           }
         }
       }

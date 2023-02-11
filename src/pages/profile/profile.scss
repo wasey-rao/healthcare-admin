@@ -1,0 +1,129 @@
+.new {
+    width: 100%;
+    display: flex;
+  
+    .newContainer {
+      flex: 6;
+  
+      .top,
+      .bottom {
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        padding: 10px;
+        margin: 20px;
+        display: flex;
+  
+        h1 {
+          color: rgb(211, 211, 211);
+          font-size: 20px;
+        }
+  
+        .left {
+          flex: 1;
+          text-align: center;
+
+          .card {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 10px 5px 5px grey;
+            .card-figure {
+              overflow: hidden;
+              background-color: #e0e0e0;
+              border-radius: 0.5rem 0.5rem 0 0;
+              img{
+                bottom: -50;
+                
+              }
+            }
+            .card-body {
+              flex: 1;
+              padding: 1rem;
+              border-width: 0 1px 1px 1px;
+              border-style: solid;
+              border-color: #e0e0e0;
+                border-radius: 0 0 0.5rem 0.5rem;
+              //@include border-radius(bottom, 0.5rem);
+            }
+            .card-title {
+              font-size: 1.2rem;
+              margin-bottom: 0.2rem;
+              color:aqua
+            }
+            .card-text {
+              font-size: 1rem;
+              margin-bottom: .3rem;
+              color:darkgray
+            }
+            .card-link {
+              color: #007bff;
+              text-decoration: none;
+              //@include stretched-link;
+            }
+          }
+  
+        //   img {
+        //     margin-top:30;
+        //     width: 100px;
+        //     height: 100px;
+        //     border-radius: 50%;
+        //     object-fit: cover;
+        //   }
+        }
+  
+        .right {
+          flex: 2;
+  
+          form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-around;
+  
+            .formInput {
+              width: 40%;
+  
+              label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+  
+                .icon {
+                  cursor: pointer;
+                }
+              }
+  
+              input {
+                width: 100%;
+                padding: 5px;
+                border: none;
+                border-bottom: 1px solid gray;
+              }
+            }
+  
+            
+          }
+          button {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            background-color: teal;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 10px;
+            align-self: center;
+            align-items: center;
+            justify-content: center;
+  
+            &:disabled {
+              opacity: 0.5;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+  }
+  
